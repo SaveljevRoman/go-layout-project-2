@@ -1,4 +1,3 @@
-// internal/router/router.go
 package router
 
 import (
@@ -22,8 +21,6 @@ func NewRouter() *Router {
 func (r *Router) HandleFunc(pattern string, handler func(http.ResponseWriter, *http.Request)) {
 	r.Mux.HandleFunc(pattern, handler)
 }
-
-// Остальные методы остаются без изменений
 
 func (r *Router) Use(middleware func(http.Handler) http.Handler) {
 	r.middlewares = append(r.middlewares, middleware)
